@@ -11,7 +11,10 @@ export default defineConfig({
   resolve: {
     alias: {
       '@components': '/src/components',
-      '@features': '/src/features'
+      '@features': '/src/features',
+      '@config': '/src/config',
+      '@types': '/src/types',
+      '@lib': '/src/lib/',
     }
   }
 })
