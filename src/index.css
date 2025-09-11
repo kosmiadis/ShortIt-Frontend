@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Rokkitt:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 
+#root {
+    background-color: #FFFAFF;
+}
+
 @theme {
     --color-primary-background: #FFFAFF;
     --color-accent: #8075FF;
@@ -8,7 +12,6 @@
     --color-detail: #C2C2C8;
 
     --max-width: 1200px;
-
     --font-accent: "Rokkitt", sans-serif;
     --default-font-family: "Hind", sans-serif;
     --breakpoint-tablet: 600px,
