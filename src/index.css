@@ -56,3 +56,18 @@
     --breakpoint-tv: 1800px
 }
 
+@layer utilities {
+    .text-gradient { 
+        @apply bg-gradient-to-r  from-accent-hover  to-accent-muted to-70% bg-clip-text text-transparent 
+    } 
+
+    .accent-box-shadow {
+        @apply shadow-accent-hover shadow-xl shadow-cen
+    }
+
+    .accent-text-shadow {
+
+    }
+    
+}
+
