@@ -34,9 +34,7 @@ export default function Header () {
         scrollTo({ behavior: 'smooth', top: scrollTopCord })
     }
 
-    
-
-    return <header ref={headerRef} className={`p-sm tablet:px-md laptop:px-xl duration-100 flex justify-between items-center ${pageIsScrolled ? 'z-100 sticky top-0 bg-bg-secondary' : 'top-0'}`}>
+    return <header ref={headerRef} className={`px-sm py-3 tablet:px-md laptop:px-xl duration-100 flex justify-between items-center ${pageIsScrolled ? 'z-100 sticky top-0 bg-bg-secondary/90 shadow-black/10 shadow-xs' : 'top-0'}`}>
         <Link to={'/'}>
             <h2 className=" font-semibold text-brand font-accent hover:text-accent-hover">Short<span className="text-accent-hover">It</span></h2>
         </Link>

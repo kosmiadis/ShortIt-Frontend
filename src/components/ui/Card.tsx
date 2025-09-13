@@ -26,7 +26,7 @@ export default function Card ({ featured={isFeatured: false, featuredText: ''}, 
             <h2 className="card-heading text-gradient">{title}</h2>
         </div>
         {body && typeof body === 'string' 
-            ? <p className="text-md text-text-secondary">{body}</p>
+            ? <p className="text-md text-text-secondary text-center">{body}</p>
             : <>{body}</>
         }
     </article>
