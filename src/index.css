@@ -9,7 +9,7 @@
     /* Backgrounds */
     --color-bg-primary: #1E1E2E; /* Main page background */
     --color-bg-secondary: #2D2D44; /* Cards, modals, sidebars */
-    --color-bg-tertiary: #04090E /* Extra-dark sections, headers, footers */
+    --color-bg-tertiary: #04090E; /* Extra-dark sections, headers, footers */
 
     /* Accents & Actions */
     --color-accent: #4F46E5; /* Primary brand / buttons */
@@ -61,13 +61,6 @@
         @apply bg-gradient-to-r  from-accent-hover  to-accent-muted to-70% bg-clip-text text-transparent 
     } 
 
-    .accent-box-shadow {
-        @apply shadow-accent-hover shadow-xl shadow-cen
-    }
-
-    .accent-text-shadow {
-
-    }
     
 }
 

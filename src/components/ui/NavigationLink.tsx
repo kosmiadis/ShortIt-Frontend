@@ -5,6 +5,7 @@ interface NavigationLinkI extends LinkProps {
 }
 
 export default function NavigationLink ({to, children, ...props}: NavigationLinkI) {
+
     return <Link className="hover:text-accent-hover text-lg" to={to} {...props}>
         {children}
     </Link>
