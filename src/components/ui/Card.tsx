@@ -14,7 +14,7 @@ export default function Card ({ featured={isFeatured: false, featuredText: ''}, 
 
     if (!body) throw new Error('Body is missing');
 
-    const cardGlobalStyling = `rounded-lg ${featured.isFeatured ? 'outline-2 outline-accent scale-110 z-100' : 'bg-bg-secondary'}  flex flex-col gap-2 max-w-[340px] p-md`
+    const cardGlobalStyling = `rounded-lg ${featured.isFeatured ? 'outline-2 outline-accent scale-110' : 'bg-bg-secondary'}  flex flex-col gap-2 max-w-[340px] p-md`
 
     return <article className={cardGlobalStyling}>
         {featured.isFeatured && <h3 className="text-sm font-bold font-accent text-text-primary">{featured.featuredText}</h3>}
