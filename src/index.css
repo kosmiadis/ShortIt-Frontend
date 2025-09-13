@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Rokkitt:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Sora:wght@100..800&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 
 #root {
@@ -6,16 +6,51 @@
 }
 
 @theme {
-    --color-primary-background: #FFFAFF;
-    --color-accent: #8075FF;
-    --color-secondary-background: #04090E;
-    --color-detail: #C2C2C8;
+    /* Backgrounds */
+    --color-bg-primary: #1E1E2E; /* Main page background */
+    --color-bg-secondary: #2D2D44; /* Cards, modals, sidebars */
+    --color-bg-tertiary: #04090E /* Extra-dark sections, headers, footers */
+
+    /* Accents & Actions */
+    --color-accent: #4F46E5; /* Primary brand / buttons */
+    --color-accent-hover: #6366F1; /* Hover state */
+    --color-accent-muted: #A78BFA; /* Secondary accents, subtle highlights */
+
+    /* Text */
+    --color-text-primary: #E5E7EB;/* Main body text */
+    --color-text-secondary: #9CA3AF;/* Muted text, descriptions */
+    --color-text-inverted: #1E1E2E;
+
+    /* Border & Dividers */
+    --color-border: #3B3B54; /* Subtle dividers, card borders */
+
+     /* State Colors */
+    --color-success: #10B981;           /* Success (link copied, etc.) */
+    --color-error: #EF4444;             /* Error (invalid URL) */
+    --color-warning: #F59E0B;           /* Warnings (quota running low) */
+
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 4rem;
+    --spacing-xxl: 8rem;
+
+    --padding-sm: 1rem;
+    --pading-md: 2rem;
+    --padding-lg: 3rem;
+    --padding-xl: 4rem;
+
+    --margin-sm: 1rem;
+
+    --default-transition-duration: 100ms;
 
     --max-width: 1200px;
-    --font-accent: "Rokkitt", sans-serif;
-    --default-font-family: "Hind", sans-serif;
+
+    --font-accent: "Sora", sans-serif;
+    --default-font-family: "Work Sans", sans-serif;
     --breakpoint-tablet: 600px,
     --breakpoint-laptop: 900px,
     --breakpoint-desktop: 1200px,
     --breakpoint-tv: 1800px
 }
+
