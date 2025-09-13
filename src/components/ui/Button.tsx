@@ -6,7 +6,7 @@ interface ButtonI extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 export default function Button ({ children, ...props }: ButtonI) {    
     return <button
-    className={`hover:cursor-pointer hover:bg-accent/90 text-nowrap rounded-lg px-4 py-1 duration-175 shadow-md text-white text-lg`}
+    className={`bg-bg-secondary hover:cursor-pointer hover:bg-accent-hover text-nowrap rounded-lg p-[10px] px-md text-md font-semibold shadow-md text-md`}
     {...props}
     >{children}</button>
 }

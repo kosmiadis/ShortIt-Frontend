@@ -24,6 +24,8 @@
     /* Border & Dividers */
     --color-border: #3B3B54; /* Subtle dividers, card borders */
 
+    --text-brand: 2rem;
+
      /* State Colors */
     --color-success: #10B981;           /* Success (link copied, etc.) */
     --color-error: #EF4444;             /* Error (invalid URL) */
@@ -43,10 +45,10 @@
     --margin-sm: 1rem;
 
     --default-transition-duration: 100ms;
-
     --max-width: 1200px;
 
     --font-accent: "Sora", sans-serif;
+
     --default-font-family: "Work Sans", sans-serif;
     --breakpoint-tablet: 600px,
     --breakpoint-laptop: 900px,
