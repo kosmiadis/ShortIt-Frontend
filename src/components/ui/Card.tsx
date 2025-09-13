@@ -14,18 +14,16 @@ export default function Card ({ featured={isFeatured: false, featuredText: ''}, 
 
     if (!body) throw new Error('Body is missing');
 
-    const cardGlobalStyling = `rounded-lg ${featured.isFeatured ? 'outline-2 outline-accent scale-110' : 'bg-bg-secondary'}  flex flex-col gap-2 max-w-[340px] p-md`
-
-    return <article className={cardGlobalStyling}>
+    return <article className={featured.isFeatured ? 'card-default card-featured' : 'card-default'}>
         {featured.isFeatured && <h3 className="text-sm font-bold font-accent text-text-primary">{featured.featuredText}</h3>}
         
         {image && typeof image === 'string' 
             ? <img src={image} />
             : <>{image}</>
         }
-        <div className="flex items-center gap-2">
+        <div className="flex-column-center">
             {icon}
-            <h2 className="text-gradient text-2xl font-semibold text-text-primary">{title}</h2>
+            <h2 className="card-heading text-gradient">{title}</h2>
         </div>
         {body && typeof body === 'string' 
             ? <p className="text-md text-text-secondary">{body}</p>

@@ -31,6 +31,7 @@
     --color-error: #EF4444;             /* Error (invalid URL) */
     --color-warning: #F59E0B;           /* Warnings (quota running low) */
 
+
     --spacing-sm: 1rem;
     --spacing-md: 2rem;
     --spacing-lg: 3rem;
@@ -59,8 +60,41 @@
 @layer utilities {
     .text-gradient { 
         @apply bg-gradient-to-r  from-accent-hover  to-accent-muted to-70% bg-clip-text text-transparent 
-    } 
+    }
 
-    
+    .btn-important {
+        @apply bg-accent-hover hover:bg-accent-hover/90
+    }
+
+    .card-heading {
+        @apply text-2xl font-semibold
+    }
+
+    .flex-column-center {
+        @apply flex flex-col items-center
+    }
+
+    .card-default {
+        @apply rounded-lg flex flex-col gap-2 max-w-[340px] p-md bg-bg-secondary
+    }
+
+    .card-featured {
+        @apply border-2 border-accent scale-110
+    }
+}
+
+@layer base {
+
+    h1 {
+        @apply font-accent
+    }
+
+    /* button, a {
+        @apply focus:outline-accent focus:outline-2 focus:border-0 focus:rounded-lg focus:px-1 focus:py-0.5
+    } */
+
+    button {
+        @apply bg-bg-secondary hover:cursor-pointer hover:bg-accent-hover text-nowrap rounded-xl p-[8px] px-md text-lg font-semibold text-text-primary shadow-md
+    }
 }
 

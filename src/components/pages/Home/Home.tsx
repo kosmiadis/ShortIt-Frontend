@@ -18,7 +18,7 @@ export default function Home () {
         //action
     }
     
-    return <div className="flex flex-col items-center gap-xxl justify-center w-full min-h-full p-md">
+    return <div className="flex-column-center gap-xxl justify-center w-full min-h-full p-md">
         <article id="" className="flex flex-col gap-4">
             <div className="text-center ">
                 <h1 className="text-6xl font-bold text-gradient">Quick, Easy and Modern</h1>
