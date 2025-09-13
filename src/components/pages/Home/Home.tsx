@@ -18,7 +18,7 @@ export default function Home () {
         //action
     }
     
-    return <div className="flex flex-col items-center gap-xl justify-center w-full min-h-full p-md">
+    return <div className="flex flex-col items-center gap-xxl justify-center w-full min-h-full p-md">
         <article id="" className="flex flex-col gap-4">
             <div className="text-center ">
                 <h1 className="text-6xl font-bold text-gradient">Quick, Easy and Modern</h1>
@@ -49,7 +49,7 @@ export default function Home () {
                 <p className="text-lg text-text-secondary">We cover all your needs with User-first Pricing Plans</p>
             </div>
 
-            <section className="flex flex-wrap justify-center items-center gap-8"> 
+            <section className="flex flex-wrap justify-center items-center  gap-12 laptop:gap-8"> 
 
                 {PRICING_PLANS.map((pricingPlan, index) => <Card featured={{isFeatured: pricingPlan.title === 'Professional', featuredText: 'Most Popular Plan'}} title={pricingPlan.title} key={pricingPlan.title+'-'+index}
                     body={
@@ -57,15 +57,15 @@ export default function Home () {
                             <p className="text-text-secondary">{pricingPlan.description}</p>
 
                             <ul>
-                                {pricingPlan.features.map((feature, index) => <li>
+                                {pricingPlan.features.map((feature, index) => <li key={feature+index}>
                                     - {feature}
                                 </li>)}
                             </ul>
 
-                            <p>{typeof pricingPlan.price === 'string' 
+                            {typeof pricingPlan.price === 'string' 
                                 ? <p className="text-2xl font-bold text-accent-muted">{pricingPlan.price}</p> 
                                 : <p className="">$ <span className="text-accent-muted font-bold text-4xl">{pricingPlan.price}</span> <span className="text-sm">/month</span></p>
-                            }</p>
+                            }
 
                             <Button important>Get Started</Button>
                         </div>

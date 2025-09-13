@@ -50,10 +50,10 @@
     --font-accent: "Sora", sans-serif;
 
     --default-font-family: "Work Sans", sans-serif;
-    --breakpoint-tablet: 600px,
-    --breakpoint-laptop: 900px,
-    --breakpoint-desktop: 1200px,
-    --breakpoint-tv: 1800px
+    --breakpoint-tablet: 600px;
+    --breakpoint-laptop: 900px;
+    --breakpoint-desktop: 1200px;
+    --breakpoint-tv: 1800px;
 }
 
 @layer utilities {

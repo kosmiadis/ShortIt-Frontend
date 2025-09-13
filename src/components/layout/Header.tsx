@@ -36,7 +36,7 @@ export default function Header () {
 
     
 
-    return <header ref={headerRef} className={`p-sm duration-100 flex justify-between items-center ${pageIsScrolled ? 'z-100 sticky top-0 bg-bg-secondary' : 'top-0'}`}>
+    return <header ref={headerRef} className={`p-sm tablet:px-md laptop:px-xl duration-100 flex justify-between items-center ${pageIsScrolled ? 'z-100 sticky top-0 bg-bg-secondary' : 'top-0'}`}>
         <Link to={'/'}>
             <h2 className=" font-semibold text-brand font-accent hover:text-accent-hover">Short<span className="text-accent-hover">It</span></h2>
         </Link>
@@ -46,7 +46,7 @@ export default function Header () {
         && 
         <nav>
             <ul className="flex gap-4">
-                <li><NavigationLink onClick={() => scrollTo({top: 0, behavior: 'smooth'})} to={'/'}>Features</NavigationLink></li>
+                <li><NavigationLink onClick={() => scrollTo({ top: 0, behavior: 'smooth' })} to={'/'}>Home</NavigationLink></li>
                 <li><NavigationLink onClick={() => handleScrollIntoView('features')} to={{pathname: '/', hash: '#features' }}>Features</NavigationLink></li>
                 <li><NavigationLink onClick={() => handleScrollIntoView('pricing')} to={{ pathname: '/', hash: '#pricing' }}>Pricing</NavigationLink></li>
             </ul>
