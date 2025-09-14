@@ -6,6 +6,7 @@ import Overview from "@components/pages/Dashboard/Overview";
 import Links from "@components/pages/Dashboard/Links";
 import Analytics from "@components/pages/Dashboard/Analytics";
 import Settings from "@components/pages/Dashboard/Settings";
+import Subscription from "@components/pages/Dashboard/Subscription";
 
 export const Router = createBrowserRouter([
     { path: '/', element: <CoreLayout />, children: [
@@ -14,7 +15,9 @@ export const Router = createBrowserRouter([
             { index: true, element: <Overview /> },
             { path: 'links', element: <Links />},
             { path: 'analytics', element: <Analytics /> },
-            { path: 'settings', element: <Settings />}
+            { path: 'subscription', element: <Subscription />},
+            { path: 'settings', element: <Settings />},
+
         ]}
     ]}
 ])

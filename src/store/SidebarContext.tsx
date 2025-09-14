@@ -1,6 +1,6 @@
 import { createContext, useState, type ReactNode } from "react";
 
-type SidebarLinkType = 'Overview' | 'Links' | 'Analytics' | 'Subscription' | 'Settings';
+export type SidebarLinkType = 'Overview' | 'Links' | 'Analytics' | 'Subscription' | 'Settings';
 
 interface SidebarCtxI {
     activeLink: SidebarLinkType
@@ -8,7 +8,8 @@ interface SidebarCtxI {
 }
 
 
-const SidebarCtx = createContext<SidebarCtxI>({
+// eslint-disable-next-line react-refresh/only-export-components
+export const SidebarCtx = createContext<SidebarCtxI>({
     activeLink: 'Overview',
     setActiveLink: () => {}
 })
