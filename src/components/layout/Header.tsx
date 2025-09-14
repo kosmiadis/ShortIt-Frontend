@@ -58,11 +58,10 @@ export default function Header () {
             </ul>
         </nav>
         }
+            
+        {(pathname == '/' || (pathname.includes('/dashboard') && width >= breakpoints.laptop)) && <Button important={pageIsScrolled}>Sign In</Button>}
 
-        {(width > breakpoints.laptop)
-            ? <Button important={pageIsScrolled}>Sign In</Button>
-            : <Menu size={36} onClick={handleOpenSidebar} />
-        }
+        {width < breakpoints.laptop && pathname.includes('/dashboard') && <Menu size={36} onClick={handleOpenSidebar} />  }
         
     </header>
 }

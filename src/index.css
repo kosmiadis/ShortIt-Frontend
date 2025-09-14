@@ -81,6 +81,10 @@
     .card-featured {
         @apply border-2 border-accent scale-110
     }
+
+    .auth-input {
+        @apply duration-0 bg-bg-secondary px-sm py-2 outline-none focus:border-1 focus:border-accent rounded-xl
+    }
 }
 
 @layer base {

@@ -6,12 +6,12 @@ interface InputI extends React.InputHTMLAttributes<HTMLInputElement> {
     actionFn?: () => void;
 }
 
-export default function Input ({ withActionButton, actionBtnText, actionFn, ...props }: InputI) {
+export default function Input ({ withActionButton=false, actionBtnText, actionFn, ...props }: InputI) {
     const inputGlobalStyling = ` bg-bg-secondary text-md px-sm outline-0 border-0`
     
-    if (!actionBtnText) throw new Error("Action button text cannot be empty");
+    if (withActionButton && !actionBtnText) throw new Error("Action button text cannot be empty");
 
-    if (!actionFn) throw new Error("Action function cannot be undefined")
+    if (withActionButton && !actionFn) throw new Error("Action function cannot be undefined")
     
     if (withActionButton) return <div className="w-full grid grid-cols-[1fr_min-content]  shadow-accent bg-bg-secondary text-text-secondary rounded-xl p-1.5">
         <input className={inputGlobalStyling} {...props} />
