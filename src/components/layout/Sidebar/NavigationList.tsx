@@ -1,5 +1,7 @@
 import NavigationLink from "@components/ui/NavigationLink"
+import { useScreenSize } from "@hooks/useScreenSize";
 import { useSidebar } from "@hooks/useSidebar"
+import breakpoints from "@styles/breakpoints";
 import { ChartBar, CreditCard, Home, Link, Settings } from "lucide-react"
 import type { SidebarLinkType } from "src/store/SidebarContext";
 
@@ -13,10 +15,12 @@ const DASHBOARD_NAV_LINKS = [
 
 export default function NavigationList () {
 
-    const { activeLink, setActiveLink } = useSidebar();
+    const { activeLink, setActiveLink, hideSidebar } = useSidebar();
+    const { width } = useScreenSize();
 
     function handleNavigationLinkClick (activeLink: SidebarLinkType) {
         setActiveLink(activeLink)
+        if (width < breakpoints.laptop) hideSidebar();
     }
 
     return <ul className="flex flex-col gap-1.5">
