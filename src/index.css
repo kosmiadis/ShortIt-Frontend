@@ -46,7 +46,7 @@
     --margin-sm: 1rem;
 
     --default-transition-duration: 100ms;
-    --max-width: 1400px;
+    --max-width: 1200px;
 
     --font-accent: "Sora", sans-serif;
 
@@ -84,6 +84,18 @@
 
     .auth-input {
         @apply duration-0 bg-bg-secondary px-sm py-2 outline-none focus:border-1 focus:border-accent rounded-xl
+    }
+
+    .url-preview-table {
+        @apply w-full flex flex-col bg-bg-tertiary rounded-xl min-w-[500px] tablet:min-w-full overflow-x-scroll tablet:overflow-hidden
+    }
+
+    .url-preview-table-head {
+        @apply p-sm grid grid-cols-[50%_30%_20%] laptop:grid-cols-[40%_20%_20%_20%] gap-sm font-semibold
+    }
+
+    .url-preview-table-row {
+        @apply last:rounded-b-xl p-sm grid grid-cols-[50%_30%_20%] laptop:grid-cols-[40%_20%_20%_20%] gap-sm odd:bg-bg-secondary/70 even:bg-bg-tertiary/10
     }
 }
 

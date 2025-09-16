@@ -30,7 +30,7 @@ export default function Sidebar () {
 
     </aside>
 
-    return <aside>
+    return <aside className="sticky">
         <nav className="w-full p-md rounded-2xl bg-bg-tertiary flex flex-col justify-between gap-xl">
             <NavigationList />
             <SidebarFooter />

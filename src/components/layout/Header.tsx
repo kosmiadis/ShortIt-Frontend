@@ -7,7 +7,6 @@ import { useEffect, useRef, useState } from "react";
 import { Menu } from "lucide-react";
 import { useSidebar } from "@hooks/useSidebar";
 
-
 export default function Header () {
     const { width } = useScreenSize();
     const headerRef = useRef<HTMLElement>(null);
@@ -59,9 +58,8 @@ export default function Header () {
         </nav>
         }
             
-        {(pathname == '/' || (pathname.includes('/dashboard') && width >= breakpoints.laptop)) && <Button important={pageIsScrolled}>Sign In</Button>}
-
-        {width < breakpoints.laptop && pathname.includes('/dashboard') && <Menu size={36} onClick={handleOpenSidebar} />  }
+        { (pathname == '/' || (pathname.includes('/dashboard') && width >= breakpoints.laptop)) && <Button important={pageIsScrolled}>Sign In</Button> }
+        { width < breakpoints.laptop && pathname.includes('/dashboard') && <Menu size={36} onClick={handleOpenSidebar} /> }
         
     </header>
 }
