@@ -9,22 +9,23 @@ import Settings from "@components/pages/Dashboard/Settings";
 import Subscription from "@components/pages/Dashboard/Subscription";
 import AuthLayout from "@components/layouts/AuthLayout";
 import Login from "@components/pages/Auth/Login";
-import Signup from "@components/pages/Auth/Signup";
+import { paths } from "@config/paths";
+import Register from "@components/pages/Auth/Register";
 
 export const Router = createBrowserRouter([
-    { path: '/', element: <CoreLayout />, children: [
-        {index: true, element: <Home />},
-        {path: 'dashboard', element: <DashboardLayout />, children: [
+    { path: paths.app.root.getHref(), element: <CoreLayout />, children: [
+        { index: true, element: <Home />},
+        { path: paths.app.dashboard.getHref(), element: <DashboardLayout />, children: [
             { index: true, element: <Overview /> },
-            { path: 'links', element: <Links />},
-            { path: 'analytics', element: <Analytics /> },
-            { path: 'subscription', element: <Subscription />},
-            { path: 'settings', element: <Settings />},
+            { path: paths.app.links.getHref(), element: <Links />},
+            { path: paths.app.analytics.getHref(), element: <Analytics /> },
+            { path: paths.app.subscription.getHref(), element: <Subscription />},
+            { path: paths.app.settings.getHref(), element: <Settings />},
 
         ]},
-        { path: 'auth', element: <AuthLayout />, children: [
-            {path: 'login', element: <Login />},
-            {path: 'signup', element: <Signup />},
+        { path: paths.auth.root.getHref(), element: <AuthLayout />, children: [
+            {path: paths.auth.login.getHref(), element: <Login />},
+            {path: paths.auth.register.getHref(), element: <Register />},
         ]}
     ]}
 ])
