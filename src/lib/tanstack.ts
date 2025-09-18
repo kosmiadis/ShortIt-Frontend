@@ -1,4 +1,4 @@
-import { QueryClient, type DefaultOptions, type UseMutationOptions } from "@tanstack/react-query";
+import { type DefaultOptions, type UseMutationOptions } from "@tanstack/react-query";
 
 
 export const queryConfig = {
@@ -8,10 +8,6 @@ export const queryConfig = {
         staleTime: 1000 * 60
     }
 } satisfies DefaultOptions
-
-export const queryClient = new QueryClient({
-    defaultOptions: { queries: { retry: 0 }, mutations: { retry: 0 }}
-});
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type ApiFnReturnType<FnType extends (...args: any) => Promise<any>> =

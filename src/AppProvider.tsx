@@ -1,9 +1,18 @@
-import { QueryClientProvider } from "@tanstack/react-query";
-import type { ReactNode } from "react";
-import { queryClient } from "./lib/tanstack";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { useState, type ReactNode } from "react";
+import { queryClient, queryConfig } from "./lib/tanstack";
 import SidebarContext from "@store/SidebarContext";
 
-export default function AppProvider ({children}: { children: ReactNode }) {
+export default function AppProvider ({ children }: { children: ReactNode }) {
+
+    //Implementing lazy initialization on Query Client instance
+    //This allows the queryClient to not reinitialize on each render
+    //Sparing computational resources (cache, memory etc...)    
+    const [queryClient] = useState(() => new QueryClient({
+        defaultOptions: queryConfig
+    }))
+
+
     return <QueryClientProvider client={queryClient}>
         <SidebarContext>
             {children}
