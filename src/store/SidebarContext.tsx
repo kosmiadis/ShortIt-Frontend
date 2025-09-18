@@ -8,7 +8,6 @@ interface SidebarCtxI {
     isSidebarOpen: boolean;
     showSidebar: () => void;
     hideSidebar: () => void;
-
 }
 
 
@@ -42,7 +41,6 @@ export default function SidebarContext ({ children }: { children: ReactNode }) {
         isSidebarOpen,
         showSidebar,
         hideSidebar
-        
     }
 
     return <SidebarCtx.Provider value={sidebarCtxValue}>

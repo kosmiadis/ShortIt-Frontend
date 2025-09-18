@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useState, type ReactNode } from "react";
-import { queryClient, queryConfig } from "./lib/tanstack";
+import { queryConfig } from "./lib/tanstack";
 import SidebarContext from "@store/SidebarContext";
 
 export default function AppProvider ({ children }: { children: ReactNode }) {

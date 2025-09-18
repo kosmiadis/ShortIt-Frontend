@@ -24,6 +24,7 @@ API.interceptors.response.use((response) => response.data, (error) => {
     const errorMsg = error.response?.data?.message || error.message;
     //add logic here
 
+    //if auth error occurs
     if (error.response?.status === 401) {
         const searchParams = new URLSearchParams();
         const redirectTo = searchParams.get('redirectTo') || window.location.pathname;
