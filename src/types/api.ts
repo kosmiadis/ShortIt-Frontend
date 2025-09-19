@@ -16,7 +16,47 @@ export type User = Entity<{
     urls: string[];
 }>
 
+export type Url = Entity<{
+    title: string;
+    description: string | null,
+    original: string;
+    short: string;
+    status: 'enabled' | 'disabled';
+    analytics: string; //reference to ObjectId (analytic document)
+    thumbnail: null // | UrlThumbnail;
+}>
+
+export type UrlThumbnail = Entity<{
+    url: string; //reference to ObjectId (url document)
+    path: string;
+}>
+
+export type Notification = Entity<{
+    hasImage: boolean;
+    imagePath: string | null;
+    title: string;
+    body: string | null;
+    priority: 'low' | 'medium' | 'high';
+    category: 'security' | 'analytics' | 'url' | 'info' | 'warning' | 'subscription';
+}>
+
+export type CreditCard = Entity<{
+    cardNumber: number;
+    ownerFullName: string;	
+    validThru: Date;
+    cvv: number;
+}>
+
+
 export type AuthResponse = {
     message: string;
     user: User;
 }
+
+// export type UrlResponse = {
+
+// }
+
+// export type AnalyticsResponse = {
+
+// }
