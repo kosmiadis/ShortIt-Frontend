@@ -89,6 +89,6 @@ export const endpoints = {
             getEndpoint: () => '/account/delete'
         }
     },
-    settings: { }
+    settings: {  }
 
 }
