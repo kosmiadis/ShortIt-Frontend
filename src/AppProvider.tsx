@@ -2,6 +2,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useState, type ReactNode } from "react";
 import { queryConfig } from "./lib/tanstack";
 import SidebarContext from "@store/SidebarContext";
+import { ErrorBoundary } from "react-error-boundary";
+import MainErrorFallback from "@components/pages/Error/MainErrorFallback";
 
 export default function AppProvider ({ children }: { children: ReactNode }) {
 
@@ -13,9 +15,11 @@ export default function AppProvider ({ children }: { children: ReactNode }) {
     }))
 
 
-    return <QueryClientProvider client={queryClient}>
-        <SidebarContext>
-            {children}
-        </SidebarContext>
-    </QueryClientProvider>
+    return <ErrorBoundary fallback={<MainErrorFallback  />}>
+        <QueryClientProvider client={queryClient}>
+            <SidebarContext>
+                {children}
+            </SidebarContext>
+        </QueryClientProvider>
+    </ErrorBoundary>
 }

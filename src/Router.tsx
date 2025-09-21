@@ -11,6 +11,7 @@ import AuthLayout from "@components/layouts/AuthLayout";
 import Login from "@components/pages/Auth/Login";
 import { paths } from "@config/paths";
 import Register from "@components/pages/Auth/Register";
+import PageNotFound from "@components/pages/Error/PageNotFound";
 
 export const Router = createBrowserRouter([
     { path: paths.app.root.getHref(), element: <CoreLayout />, children: [
@@ -27,5 +28,6 @@ export const Router = createBrowserRouter([
             {path: paths.auth.login.getHref(), element: <Login />},
             {path: paths.auth.register.getHref(), element: <Register />},
         ]}
-    ]}
+    ]},
+    { path: '*', element: <PageNotFound /> }
 ])
