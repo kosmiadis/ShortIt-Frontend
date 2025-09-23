@@ -4,6 +4,7 @@ import { queryConfig } from "./lib/tanstack";
 import SidebarContext from "@store/SidebarContext";
 import { ErrorBoundary } from "react-error-boundary";
 import MainErrorFallback from "@components/pages/Error/MainErrorFallback";
+import { Toaster } from "sonner";
 
 export default function AppProvider ({ children }: { children: ReactNode }) {
 
@@ -17,6 +18,7 @@ export default function AppProvider ({ children }: { children: ReactNode }) {
 
     return <ErrorBoundary fallback={<MainErrorFallback  />}>
         <QueryClientProvider client={queryClient}>
+            <Toaster richColors position="top-center" closeButton theme="dark"/>
                 <SidebarContext>
                     {children}
                 </SidebarContext>
