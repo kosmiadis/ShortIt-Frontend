@@ -7,7 +7,6 @@ export const API = axios.create({
     withCredentials: true,
 })
 
-
 function authRequestInterceptor (config: InternalAxiosRequestConfig) {
     if (config.headers) {
         config.headers.Accept = 'application/json';
@@ -22,7 +21,7 @@ API.interceptors.response.use((response) => response.data, (error) => {
     
     //display error notification with the errorMsg
     const errorMsg = error.response?.data?.message || error.message;
-    //add logic here
+    alert(errorMsg);
 
     //if auth error occurs
     if (error.response?.status === 401) {
