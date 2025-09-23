@@ -13,7 +13,7 @@ export default function Header () {
     const [pageIsScrolled, setPageIsScrolled] = useState(false);
     const { showSidebar } = useSidebar();
     const { pathname } = useLocation();
-    console.log(pathname);
+    
     // for handling smooth header stickiness when scrolling
     useEffect(() => {
         function checkIfScrolled () {
