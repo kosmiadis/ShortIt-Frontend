@@ -12,11 +12,12 @@ import Login from "@components/pages/Auth/Login";
 import { paths } from "@config/paths";
 import Register from "@components/pages/Auth/Register";
 import PageNotFound from "@components/pages/Error/PageNotFound";
+import ProtectedRoute from "@components/layout/ProtectedRoute";
 
 export const Router = createBrowserRouter([
     { path: paths.app.root.getHref(), element: <CoreLayout />, children: [
         { index: true, element: <Home />},
-        { path: paths.app.dashboard.getHref(), element: <DashboardLayout />, children: [
+        { path: paths.app.dashboard.getHref(), element: <ProtectedRoute><DashboardLayout /></ProtectedRoute>, children: [
             { index: true, element: <Overview /> },
             { path: paths.app.links.getHref(), element: <Links />},
             { path: paths.app.analytics.getHref(), element: <Analytics /> },
