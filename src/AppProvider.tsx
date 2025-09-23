@@ -17,9 +17,9 @@ export default function AppProvider ({ children }: { children: ReactNode }) {
 
     return <ErrorBoundary fallback={<MainErrorFallback  />}>
         <QueryClientProvider client={queryClient}>
-            <SidebarContext>
-                {children}
-            </SidebarContext>
+                <SidebarContext>
+                    {children}
+                </SidebarContext>
         </QueryClientProvider>
     </ErrorBoundary>
 }

@@ -12,9 +12,12 @@ export type User = Entity<{
     firstName: string;
     lastName: string;
     age: number;
+    password: number;
     email: string;
     urls: string[];
 }>
+
+export type PublicUser = Omit<User, 'password'>
 
 export type Url = Entity<{
     title: string;
