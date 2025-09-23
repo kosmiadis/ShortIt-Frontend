@@ -1,12 +1,14 @@
+import type { RefObject } from "react";
 import Button from "./Button";
 
 interface InputI extends React.InputHTMLAttributes<HTMLInputElement> {
+    ref: RefObject<HTMLInputElement | null>,
     withActionButton?: boolean;
     actionBtnText?: string | React.ReactNode;
     actionFn?: () => void;
 }
 
-export default function Input ({ withActionButton=false, actionBtnText, actionFn, ...props }: InputI) {
+export default function Input ({ withActionButton=false, actionBtnText, actionFn, ref, ...props }: InputI) {
     const inputGlobalStyling = ` bg-bg-secondary text-md px-sm outline-0 border-0`
     
     if (withActionButton && !actionBtnText) throw new Error("Action button text cannot be empty");
@@ -18,5 +20,5 @@ export default function Input ({ withActionButton=false, actionBtnText, actionFn
         <Button important onClick={actionFn}>{actionBtnText}</Button>
     </div>
     
-    return <input {...props}/>
+    return <input ref={ref} {...props}/>
 }
