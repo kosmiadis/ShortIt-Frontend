@@ -1,5 +1,8 @@
 export const endpoints = {
     auth: {
+        me: {
+            getEndpoint: () => '/auth/me'
+        },
         login: {
             getEndpoint: () => '/auth/login'
         },

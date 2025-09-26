@@ -15,10 +15,13 @@ export default defineConfig({
       '@config': '/src/config',
       '@types': '/src/types',
       '@lib': '/src/lib/',
+      '@util': '/src/util',
       '@hooks': '/src/hooks',
       '@styles': '/src/styles',
       '@store': '/src/store',
-      '@assets': '/src/assets'
+      '@assets': '/src/assets',
+      '@queries': '/src/queries',
+      '@mutations': '/src/mutations',
     }
   }
 })

@@ -38,11 +38,11 @@ export default function Login () {
         
         <h1 className="text-2xl font-semibold">Login</h1>
         <form onSubmit={handleLogin} className=" flex flex-col gap-sm">
-            <Input ref={emailInputRef} className="auth-input" placeholder="Email" type="text" />
-            <Input ref={passwordInputRef} className="auth-input" placeholder="Password" type="password"/>
+            <Input disabled={isPending} ref={emailInputRef} className="auth-input" placeholder="Email" type="text" />
+            <Input disabled={isPending} ref={passwordInputRef} className="auth-input" placeholder="Password" type="password"/>
             <Button type="submit" important disabled={isPending}>Login</Button>
         </form>
 
-        <h2>Don't have an account? <NavigationLink to={'/auth/signup'}>Create one</NavigationLink></h2>
+        <h2>Don't have an account? <NavigationLink to={'/auth/register'}>Create one</NavigationLink></h2>
     </>
 }
