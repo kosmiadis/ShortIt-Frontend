@@ -1,5 +1,7 @@
 import Input from "@components/ui/Input";
 import NavigationLink from "@components/ui/NavigationLink";
+import TrafficChart from "./TrafficChart";
+import LinksTable from "./LinksTable";
 
 export default function Overview () {
     return <div className="flex flex-col gap-sm">
@@ -27,13 +29,19 @@ export default function Overview () {
             </div>
         </section>
 
-        <section>
+        <section className="flex flex-col gap-sm">
             <h2 className="text-2xl">Statistics</h2>
+            <TrafficChart />
             {/* <LineChart points={[
                 { yAxis: 50, prevX: 0, prevY: 0, x: 200, y: 30, nextX: 20, nextY: 10},
                 { yAxis: 50, prevX: 10, prevY: 30, x: 20, y: 10, nextX: 30, nextY: 20},
             
             ]} yAxis={50} yAxisPointsLength={4} xAxis={[new Date(2025, 9, 15), new Date(2025, 9, 16), new Date(2025, 9, 17), new Date(2025, 9, 18)]}  featuredStatistic={1225} statisticTitle="Total Clicks" /> */}
+        </section>
+        
+        <section className="flex flex-col gap-sm">
+            <h2 className="text-2xl">Your Links</h2>
+            <LinksTable />
         </section>
     </div>
 }

@@ -33,19 +33,19 @@ export const paths = {
         },
         links: {
             path: 'links',
-            getHref: () => '/dashboard/links'
+            getHref: () => 'links'
         },
         analytics: {
             path: 'analytics',
-            getHref: () => '/dashboard/analytics'
+            getHref: () => 'analytics'
         },
         subscription: {
             path: 'subscription',
-            getHref: () => '/dashboard/subscription'
+            getHref: () => 'subscription'
         },
         settings: {
             path: 'settings',
-            getHref: () => '/dashboard/settings'
+            getHref: () => 'settings'
         }
     }
 } as const;

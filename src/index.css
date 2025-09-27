@@ -95,7 +95,7 @@
     }
 
     .url-preview-table-row {
-        @apply last:rounded-b-xl p-sm grid grid-cols-[50%_30%_20%] laptop:grid-cols-[40%_20%_20%_20%] gap-sm odd:bg-bg-secondary even:bg-bg-tertiary/10
+        @apply last:rounded-b-xl p-sm grid grid-cols-[50%_30%_20%] laptop:grid-cols-[40%_20%_20%_20%] gap-sm odd:bg-bg-secondary even:bg-bg-tertiary/40 hover:brightness-115
     }
 }
 

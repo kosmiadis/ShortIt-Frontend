@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import CoreLayout from "@components/layouts/CoreLayout.tsx";
 import Home from "@components/pages/Home/Home";
 import DashboardLayout from "@components/layouts/DashboardLayout";
-import Overview from "@components/pages/Dashboard/Overview";
+import Overview from "@components/pages/Dashboard/Overview/Overview";
 import Links from "@components/pages/Dashboard/Links";
 import Analytics from "@components/pages/Dashboard/Analytics";
 import Settings from "@components/pages/Dashboard/Settings";

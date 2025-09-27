@@ -6,7 +6,7 @@ import { Navigate, useLocation } from "react-router-dom";
 
 export default function ProtectedRoute ({ children } : { children: React.ReactNode }) {
 
-    const { data, isPending, isError, error } = useGetAuth();
+    const { data, isPending, isError } = useGetAuth();
     const { user, setUser } = useAuth();
     const location = useLocation();
 
@@ -16,7 +16,7 @@ export default function ProtectedRoute ({ children } : { children: React.ReactNo
             console.log(data);
             setUser(data?.user);
         }
-    }, [data, setUser])
+    }, [data, setUser, user])
 
     if (isPending) return <>Loading</>
 
@@ -25,5 +25,5 @@ export default function ProtectedRoute ({ children } : { children: React.ReactNo
     //tried to access
     if (isError) return <Navigate to={paths.auth.login.getHref(location.pathname)}/> //add notification later
 
-    if (user) return children;
+    if (data) return children;
 }
