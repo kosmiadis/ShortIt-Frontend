@@ -2,6 +2,7 @@ import axios, { type InternalAxiosRequestConfig } from "axios";
 import { AppConfig } from "@config/AppConfig";
 import { paths } from "@config/paths";
 import { toast } from "sonner";
+import { displayNotification } from "./notifications";
 
 export const API = axios.create({
     baseURL: AppConfig.baseUrl,
@@ -12,8 +13,7 @@ function authRequestInterceptor (config: InternalAxiosRequestConfig) {
     if (config.headers) {
         config.headers.Accept = 'application/json';
     }
-
-    // config.withCredentials = true;
+    config.withCredentials = true;
     return config
 }
 
@@ -22,7 +22,7 @@ API.interceptors.response.use((response) => response.data, (error) => {
     
     //display error notification with the errorMsg
     const errorMsg = error.response?.data?.message || error.message;
-    toast.error(errorMsg);
+    displayNotification(errorMsg, 'error');
 
     //if auth error occurs
     if (error.response?.status === 401) {

@@ -1,4 +1,5 @@
 import { login } from "@lib/auth/login";
+import { displayNotification } from "@lib/notifications";
 import { useMutation } from "@tanstack/react-query";
 
 import { useLocation, useNavigate } from "react-router-dom";
@@ -17,6 +18,7 @@ export function useLogin () {
             //redirect to "redirectTo" parameter
             const redirectTo = decodeURIComponent(location.search.split('=')[1])
             navigate(redirectTo);
+            displayNotification('Login successful', 'success');
         }
     })
 }
