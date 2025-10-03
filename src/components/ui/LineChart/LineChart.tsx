@@ -8,29 +8,29 @@
     line: The styling of the chart line.
 */
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { LineI } from "./Line";
 import Line from "./Line";
 
 
-interface LineChartI {
-    statisticTitle: string;
-    featuredStatistic: number | string;
-    yAxis: number;
-    yAxisPointsLength: number;
-    scaleX?: 'day' | 'month' | 'year' | number;
-    xAxis?: number[] | Date[] | string[];
-    points?: LineI[];
-}
+// interface LineChartI {
+//     statisticTitle: string;
+//     featuredStatistic: number | string;
+//     yAxis: number;
+//     yAxisPointsLength: number;
+//     scaleX?: 'day' | 'month' | 'year' | number;
+//     xAxis?: number[] | Date[] | string[];
+//     points?: LineI[];
+// }
 
-function returnYAxisPoints (yAxis: number, yAxisPointsLength: number) {
-    const yAxisPoints = [];
-    for (let i=0; i<yAxisPointsLength; i++) {
-        yAxisPoints.push(yAxis - i * (Math.round(yAxis/yAxisPointsLength)))
-    }
-    yAxisPoints.push(0);
-    return yAxisPoints
-}
+// function returnYAxisPoints (yAxis: number, yAxisPointsLength: number) {
+//     const yAxisPoints = [];
+//     for (let i=0; i<yAxisPointsLength; i++) {
+//         yAxisPoints.push(yAxis - i * (Math.round(yAxis/yAxisPointsLength)))
+//     }
+//     yAxisPoints.push(0);
+//     return yAxisPoints
+// }
 
 export default function LineChart ({ 
     statisticTitle,
@@ -40,16 +40,41 @@ export default function LineChart ({
     scaleX,
     xAxis,
     points
- }: LineChartI) {
+ }) {
 
 
-    const lineChartRef = useRef<HTMLDivElement>(null);
+    const lineChartRef = useRef<HTMLCanvasElement>(document.querySelector('#chart'));
+    // if (!ctx) return <div>Something went wrong with loading the chart.</div>
+    const [ctx, setCtx] = useState<CanvasRenderingContext2D | null>(null);
+
+
+    //for loading canvas context.
+    useEffect(() => {   
+        if (lineChartRef !== null) {
+            // console.log(lineChartRef.current!.getContext('2d'))
+            setCtx(lineChartRef.current!.getContext('2d'));
+        }
+    }, [lineChartRef])
+
+    //for linechart drawing
+    useEffect(() => {
+        if (ctx) {
+            //add analytics line logic here.
+            ctx.beginPath();
+            ctx.moveTo(0,0);
+            ctx.lineTo(100, 100);
+            ctx.stroke();
+        }
+    }, [ctx])
+
+
+
 
     if (scaleX === 'day') return <></>
     if (scaleX === 'month') return <></>
     if (scaleX === 'year') return <></>
 
-    const yAxisPoints = returnYAxisPoints(yAxis, yAxisPointsLength);
+    // const yAxisPoints = returnYAxisPoints(yAxis, yAxisPointsLength);
 
 
     return <div className="bg-bg-secondary flex flex-col gap-md p-sm rounded-lg">
@@ -72,9 +97,15 @@ export default function LineChart ({
             </select>
         </div>
 
-
         {/* Line Chart */}
-        <div  className="grid grid-cols-[min-content_1fr] grid-rows-[1fr_min-content] gap-sm text-text-secondary">
+        <canvas id="chart" ref={lineChartRef}>
+        </canvas> 
+        
+    </div>
+}
+
+
+`<div  className="grid grid-cols-[min-content_1fr] grid-rows-[1fr_min-content] gap-sm text-text-secondary">
             {/* Y Axis */}
             <div className="flex row-start-1 row-end-[-1]">
                 <ul className="flex flex-col items-center gap-sm">
@@ -84,13 +115,12 @@ export default function LineChart ({
 
             {/* Line Chart */}
             <div ref={lineChartRef} className="w-full h-full relative" style={{}}>
-                {points?.map(point => <Line width={Math.round(lineChartRef.current?.clientWidth / xAxis.length)} {...point} />)}
+                {points?.map(point => <Line {...point} />)}
             </div>
 
             {/* X Axis */}
             <div>
                 <ul className="flex items-center justify-around">
-
                     {xAxis?.map(xAxisPoint => <li>
                         {typeof xAxisPoint === 'number' && xAxisPoint}
                         {typeof xAxisPoint === 'string' && <span>{xAxisPoint}</span>}
@@ -98,8 +128,5 @@ export default function LineChart ({
                     </li>)}
                 </ul>
             </div>
-            
-        </div>
 
-    </div>
-}
+        </div>`
