@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import { useScreenSize } from "@hooks/useScreenSize"
 import Button from "@components/ui/Button";
 import NavigationLink from "@components/ui/NavigationLink";
@@ -6,13 +6,17 @@ import breakpoints from "@styles/breakpoints";
 import { useEffect, useRef, useState } from "react";
 import { Menu } from "lucide-react";
 import { useSidebar } from "@hooks/useSidebar";
+import { useAuth } from "@store/useAuth";
+import { paths } from "@config/paths";
 
 export default function Header () {
     const { width } = useScreenSize();
     const headerRef = useRef<HTMLElement>(null);
-    const [pageIsScrolled, setPageIsScrolled] = useState(false);
+    const [ pageIsScrolled, setPageIsScrolled ] = useState(false);
     const { showSidebar } = useSidebar();
     const { pathname } = useLocation();
+    const { user } = useAuth();
+    const navigate = useNavigate();
     
     // for handling smooth header stickiness when scrolling
     useEffect(() => {
@@ -41,6 +45,14 @@ export default function Header () {
         showSidebar();
     }
 
+    function handleNavigateToHome () {
+        navigate(paths.app.home.getHref())
+    }
+
+    function handleNavigateToDashboard () {
+        navigate(paths.app.dashboard.getHref())
+    }
+
     return <header ref={headerRef} className={`px-sm py-3 tablet:px-md laptop:px-xl duration-100 flex justify-between items-center ${pageIsScrolled ? 'z-100 sticky top-0 bg-bg-secondary/90 shadow-black/10 shadow-xs' : 'top-0'}`}>
         <Link to={'/'}>
             <h2 className=" font-semibold text-brand font-accent hover:text-accent-hover">Short<span className="text-accent-hover">It</span></h2>
@@ -57,8 +69,9 @@ export default function Header () {
             </ul>
         </nav>
         }
-            
-        { (pathname == '/' || (pathname.includes('/dashboard') && width >= breakpoints.laptop)) && <Button important={pageIsScrolled}>Sign In</Button> }
+
+        { (pathname == '/' && width >= breakpoints.laptop) && <Button important={pageIsScrolled} onClick={handleNavigateToDashboard}>Dashboard</Button> }
+        { pathname.includes('/dashboard') && width >= breakpoints.laptop && <Button important={pageIsScrolled} onClick={handleNavigateToHome}>Home</Button> }
         { width < breakpoints.laptop && pathname.includes('/dashboard') && <Menu size={36} onClick={handleOpenSidebar} /> }
         
     </header>
