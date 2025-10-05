@@ -35,6 +35,13 @@ export const paths = {
             path: 'links',
             getHref: () => 'links'
         },
+        link: {
+            path: 'link',
+            getHref: (linkId?:string) =>
+                linkId 
+                ? 'link?link='+linkId
+                : 'link',
+        },
         analytics: {
             path: 'analytics',
             getHref: () => 'analytics'

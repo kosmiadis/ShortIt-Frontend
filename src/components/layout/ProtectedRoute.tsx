@@ -11,9 +11,7 @@ export default function ProtectedRoute ({ children } : { children: React.ReactNo
     const location = useLocation();
 
     useEffect(() => {
-
         if (data) {
-            console.log(data);
             setUser(data?.user);
         }
     }, [data, setUser, user])

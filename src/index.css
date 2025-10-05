@@ -86,16 +86,16 @@
         @apply duration-0 bg-bg-secondary px-sm py-2 outline-none focus:border-1 focus:border-accent rounded-xl
     }
 
-    .url-preview-table {
-        @apply w-full flex flex-col bg-accent rounded-xl min-w-[500px] tablet:min-w-full overflow-x-scroll tablet:overflow-hidden
+    .table {
+        @apply flex flex-col bg-accent rounded-xl min-w-[500px] overflow-x-scroll tablet:overflow-hidden
+    }
+/* grid-cols-[50%_50%_30%] */
+    .table-head {
+        @apply p-sm gap-sm font-semibold
     }
 
-    .url-preview-table-head {
-        @apply p-sm grid grid-cols-[50%_30%_20%] laptop:grid-cols-[40%_20%_20%_20%] gap-sm font-semibold
-    }
-
-    .url-preview-table-row {
-        @apply last:rounded-b-xl p-sm grid grid-cols-[50%_30%_20%] laptop:grid-cols-[40%_20%_20%_20%] gap-sm odd:bg-bg-secondary even:bg-bg-tertiary/40 hover:brightness-115
+    .table-row {
+        @apply last:rounded-b-xl p-sm gap-sm odd:bg-bg-secondary even:bg-bg-tertiary/40 hover:brightness-115
     }
 }
 
@@ -104,6 +104,7 @@
     h1 {
         @apply font-accent
     }
+
 
     /* button, a {
         @apply focus:outline-accent focus:outline-2 focus:border-0 focus:rounded-lg focus:px-1 focus:py-0.5

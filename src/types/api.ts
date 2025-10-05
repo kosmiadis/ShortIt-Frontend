@@ -25,6 +25,7 @@ export type Url = Entity<{
     original: string;
     short: string;
     status: 'enabled' | 'disabled';
+    clicks: number;
     analytics: string; //reference to ObjectId (analytic document)
     thumbnail: null // | UrlThumbnail;
 }>
