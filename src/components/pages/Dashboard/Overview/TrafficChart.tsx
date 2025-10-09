@@ -18,11 +18,11 @@ export default function TrafficChart () {
 
 
 
-    return <div className='w-full overflow-x-scroll py-sm'>
-      <LineChart width={1000} height={200} data={data}>
-      <Line dataKey="uv" />
-      <YAxis dataKey="uv"/>
-      <XAxis dataKey="name" />
-      </LineChart>
+    return <div className=' overflow-x-scroll py-sm'>
+      {/* <LineChart width={1000} className='overflow-x-scroll' height={200} data={data}>
+        <Line dataKey="uv" />
+        <YAxis dataKey="uv"/>
+        <XAxis dataKey="name" />
+      </LineChart> */}
     </div>
 }

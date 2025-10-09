@@ -1,17 +1,24 @@
 import DashboardSection from "@components/ui/DashboardSection";
-import NavigationLink from "@components/ui/NavigationLink";
-import Table from "@components/ui/Table/Table";
 import LinkPreview from "./LinkPreview";
+import { Plus } from "lucide-react";
 
 
 export default function Links () {
+    
+    function handleCreateLink () {
+        console.log('it works');
+    }
+    
     return <div>
-        <DashboardSection title={"Links"} >
-
+        <DashboardSection title={"Links"} 
+            actionBtn={<>Create{<Plus />}</>}
+            actionFn={handleCreateLink}    
+        >
         {/* display only 9 per page */}
-        <ul className="grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 gap-sm">
+        <ul className="grid grid-cols-1 tablet:grid-cols-2 gap-sm">
             <li>
                 <LinkPreview 
+                    _id="asdf22aksks$ask"
                     original={"https://youtube.com"}
                     short={"ak22s"}
                     clicks={288}
@@ -21,6 +28,7 @@ export default function Links () {
             </li>
             <li>
                 <LinkPreview 
+                _id="asdf22aksks$ask"
                     original={"https://youtube.com"}
                     short={"ak22s"}
                     clicks={288}
@@ -30,6 +38,7 @@ export default function Links () {
             </li>
             <li>
                 <LinkPreview 
+                _id="asdf22aksks$ask"
                     original={"https://youtube.com"}
                     short={"ak22s"}
                     clicks={288}
@@ -39,6 +48,7 @@ export default function Links () {
             </li>
             <li>
                 <LinkPreview 
+                _id="asdf22aksks$ask"
                     original={"https://youtube.com"}
                     short={"ak22s"}
                     clicks={288}

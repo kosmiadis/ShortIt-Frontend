@@ -24,7 +24,7 @@ export const endpoints = {
             }
         },
         shorten: {
-            getEndpoint: (urlId: string) => `/url/shorten?url=${urlId}`
+            getEndpoint: () => `/url/shorten`
         },
         enable: {
             getEndpoint: (urlId: string) => `/url/enable?url=${urlId}`

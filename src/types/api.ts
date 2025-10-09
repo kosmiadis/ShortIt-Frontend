@@ -52,10 +52,36 @@ export type CreditCard = Entity<{
 }>
 
 
-export type AuthResponse = {
+//Error Types
+type errorCode = 400 | 401 | 402 | 403 | 404 | 500;
+type errorType = 'internal' | 'auth' | 'unknown' | 'data-validation'
+
+type ApiError = {
+    code: errorCode;
+    message: string;
+    errorType: errorType;
+    errors: string[];
+}
+
+type responseError = ApiError | Error | string | undefined | null
+//End of error types
+
+
+export type BaseApiResponse = {
+    message: string,
+    code: number,
+    data?: any,
+    error?: responseError 
+}
+
+export type ApiResponse<T> = {
+    [K in keyof T]: T[K];
+} & BaseApiResponse
+
+export type AuthResponse = ApiResponse<{
     message: string;
     user: User;
-}
+}>
 
 // export type UrlResponse = {
 
